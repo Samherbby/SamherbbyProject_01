@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LagosCare Hospital | Advanced Medicine & Compassionate Care</title>
+  <meta name="description" content="LagosCare Hospital provides 24/7 emergency care, specialist clinics, diagnostics, and telemedicine." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0A7EC2;
+      --primary-dark: #075f94;
+      --accent: #2ECC71;
+      --surface: #f8fafc;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--surface);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6, .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* Navbar */
+    .navbar {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #fff !important;
+    }
+    .navbar-brand { color: var(--primary) !important; font-size: 1.5rem; }
+    .nav-link { font-weight: 500; color: var(--text-main); transition: color 0.3s; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); }
+    
+    /* Buttons */
+    .btn-primary { background-color: var(--primary); border: none; padding: 10px 24px; font-weight: 600; }
+    .btn-primary:hover { background-color: var(--primary-dark); }
+    .btn-outline-primary { border-color: var(--primary); color: var(--primary); font-weight: 600; }
+    .btn-outline-primary:hover { background-color: var(--primary); color: #fff; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(10, 126, 194, 0.8), rgba(10, 126, 194, 0.8)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+      padding: 120px 0 80px;
+      margin-bottom: 40px;
+    }
+    .hero h1 { font-size: 3.5rem; line-height: 1.2; }
+    .hero-stats { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.2); }
+
+    /* Cards & Badges */
+    .card { border: none; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .icon-circle { width: 60px; height: 60px; background: #e6f6ff; color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem; }
+    .doc-img { height: 250px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
+    
+    /* Emergency Banner */
+    .emergency-banner { background: #fee2e2; color: #991b1b; padding: 12px 0; font-weight: 500; text-align: center; }
+
+    /* Sections */
+    .section-title { position: relative; margin-bottom: 3rem; text-align: center; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary); margin: 15px auto 0; border-radius: 3px; }
+
+    /* Floating CTA */
+    .floating-cta { position: fixed; bottom: 30px; right: 30px; z-index: 1000; box-shadow: 0 10px 20px rgba(10,126,194,0.3); border-radius: 50px; padding: 12px 25px; font-size: 1.1rem; }
+
+    /* Footer */
+    footer { background: #0f172a; color: #cbd5e1; padding: 60px 0 20px; }
+    footer h5 { color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 20px; }
+    footer a { color: #cbd5e1; text-decoration: none; transition: 0.3s; }
+    footer a:hover { color: #fff; text-decoration: underline; }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
+
+  <!-- Emergency Banner -->
+  <div class="emergency-banner">
+    <div class="container">
+      <i class="fa-solid fa-truck-medical me-2"></i> <strong>24/7 Emergency Care:</strong> Call our hotline immediately at +234 800 123 4567 or visit our Victoria Island ER.
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <i class="fa-solid fa-house-medical"></i> LagosCare
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#doctors">Specialists</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fa-regular fa-user me-2"></i>Patient Portal</button>
+          <a href="#appointments" class="btn btn-primary">Book Visit</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="badge bg-light text-primary mb-3 py-2 px-3 fs-6 rounded-pill"><i class="fa-solid fa-certificate me-2"></i>ISO 9001 Quality Certified</span>
+          <h1 class="mb-4">Compassionate Care.<br>Advanced Medicine.</h1>
+          <p class="lead mb-5 opacity-75">Book same‑day appointments, access top-tier specialists, and receive evidence-based diagnostics with fast turnaround times.</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#appointments" class="btn btn-primary btn-lg px-4 py-3">Schedule an Appointment</a>
+            <a href="#services" class="btn btn-outline-light btn-lg px-4 py-3">Explore Our Services</a>
+          </div>
+        </div>
+        <div class="col-lg-5 mt-5 mt-lg-0">
+          <div class="hero-stats text-center row g-3">
+            <div class="col-6">
+              <h2 class="mb-0">20+</h2><p class="small mb-0">Specialists</p>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-0">24/7</h2><p class="small mb-0">Emergency Care</p>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-0">4.8★</h2><p class="small mb-0">Patient Rating</p>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-0">15k+</h2><p class="small mb-0">Patients Treated</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Our Medical Services</h2>
+      <div class="row g-4">
+        <!-- Service 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-stethoscope"></i></div>
+            <h4>Primary Care</h4>
+            <p class="text-muted">Routine checkups, vaccinations, and comprehensive chronic disease management tailored to you.</p>
+          </div>
+        </div>
+        <!-- Service 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h4>Cardiology</h4>
+            <p class="text-muted">Preventive cardiology, ECG, stress tests, and advanced interventional procedures.</p>
+          </div>
+        </div>
+        <!-- Service 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-baby"></i></div>
+            <h4>Maternal Health</h4>
+            <p class="text-muted">Antenatal clinics, advanced delivery suites, fetal monitoring, and postnatal support.</p>
+          </div>
+        </div>
+        <!-- Service 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-microscope"></i></div>
+            <h4>Diagnostics</h4>
+            <p class="text-muted">Rapid laboratory tests, X-ray, ultrasound, and comprehensive imaging center.</p>
+          </div>
+        </div>
+        <!-- Service 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-laptop-medical"></i></div>
+            <h4>Telemedicine</h4>
+            <p class="text-muted">Secure, high-quality video consultations with licensed physicians from the comfort of home.</p>
+          </div>
+        </div>
+        <!-- Service 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4">
+            <div class="icon-circle"><i class="fa-solid fa-truck-medical"></i></div>
+            <h4>Emergency & Trauma</h4>
+            <p class="text-muted">Round-the-clock triage, stabilization, and multidisciplinary acute care capability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors Section -->
+  <section id="doctors" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Meet Our Specialists</h2>
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-6">
+          <input type="text" id="doctorSearch" class="form-control form-control-lg" placeholder="Search by name or specialty (e.g., Cardiology)...">
+        </div>
+      </div>
+      <div class="row g-4" id="doctorGrid">
+        <!-- Doctors injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment & Contact Section -->
+  <section id="appointments" class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Contact Info -->
+        <div class="col-lg-5" id="contact">
+          <h2 class="mb-4">Get in Touch</h2>
+          <p class="text-muted mb-4">We are here to assist you. Reach out for general inquiries or visit our facility in Lagos.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3"><i class="fa-solid fa-location-dot text-primary me-3 fs-5"></i> Victoria Island, Lagos, Nigeria</li>
+            <li class="mb-3"><i class="fa-solid fa-phone text-primary me-3 fs-5"></i> +234 800 123 4567 (24/7 Hotline)</li>
+            <li class="mb-3"><i class="fa-solid fa-envelope text-primary me-3 fs-5"></i> hello@lagoscare.ng</li>
+            <li class="mb-3"><i class="fa-regular fa-clock text-primary me-3 fs-5"></i> Mon–Fri: 8:00–18:00 | ER: 24/7</li>
+          </ul>
+          <div class="card border-0 shadow-sm overflow-hidden">
+            <iframe src="https://www.google.com/maps?q=Victoria+Island+Lagos&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        
+        <!-- Booking Form -->
+        <div class="col-lg-7">
+          <div class="card p-4 p-md-5">
+            <h3 class="mb-4">Book an Appointment</h3>
+            <form id="appointmentForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" required>
+                  <div class="invalid-feedback">Please enter your phone number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Department / Service</label>
+                  <select class="form-select" required>
+                    <option value="" disabled selected>Select Department...</option>
+                    <option>Primary Care</option>
+                    <option>Cardiology</option>
+                    <option>Obstetrics & Gynecology</option>
+                    <option>Pediatrics</option>
+                    <option>Diagnostics</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Date</label>
+                  <input type="date" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Time</label>
+                  <input type="time" class="form-control" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Reason for Visit</label>
+                  <textarea class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" required id="consentCheck">
+                    <label class="form-check-label text-muted small" for="consentCheck">
+                      I consent to the processing of my medical data for scheduling purposes.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 mt-4">
+                  <button class="btn btn-primary w-100 py-3" type="submit">Confirm Appointment Request</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5 class="mb-4"><i class="fa-solid fa-house-medical me-2"></i>LagosCare Hospital</h5>
+          <p class="small text-muted mb-4">Evidence-based care delivered by licensed professionals in a state-of-the-art facility. Your health is our utmost priority.</p>
+          <div class="d-flex gap-3">
+            <a href="#"><i class="fa-brands fa-facebook fs-5"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter fs-5"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#home">Home</a></li>
+            <li class="mb-2"><a href="#services">Services</a></li>
+            <li class="mb-2"><a href="#doctors">Find a Doctor</a></li>
+            <li class="mb-2"><a href="#appointments">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Legal</h5>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#">Terms of Service</a></li>
+            <li class="mb-2"><a href="#">Patient Rights</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Newsletter</h5>
+          <p class="small text-muted">Subscribe for health tips and clinic updates.</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 border-secondary">
+      <div class="text-center small text-muted">
+        &copy; <span id="currentYear"></span> LagosCare Hospital. All rights reserved. ISO 9001 Certified.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Sticky CTA -->
+  <a href="#appointments" class="btn btn-primary floating-cta d-none d-md-block">
+    <i class="fa-regular fa-calendar-check me-2"></i> Book Appointment
+  </a>
+
+  <!-- Patient Portal Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fs-4" id="loginModalLabel">Patient Portal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="text-muted mb-4">Secure access to your medical records, test results, and upcoming appointments.</p>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label d-flex justify-content-between">
+                Password
+                <a href="#" class="text-primary small text-decoration-none">Forgot?</a>
+              </label>
+              <input type="password" class="form-control" required minlength="8">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Secure Login</button>
+            <div class="text-center small text-muted">
+              Don't have an account? <a href="#contact" class="text-primary text-decoration-none">Contact Reception</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Update Copyright Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Doctors Database & Search Logic
+    const doctors = [
+      { name: 'Dr. Ade Bello', specialty: 'Cardiology', experience: '12 years', img: 'https://images.unsplash.com/photo-1622259076165-4f95dbe5d8f3?auto=format&fit=crop&w=600&q=80' },
+      { name: 'Dr. Fatima Nwosu', specialty: 'Obstetrics & Gynecology', experience: '10 years', img: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=600&q=80' },
+      { name: 'Dr. Emeka Okafor', specialty: 'Pediatrics', experience: '8 years', img: 'https://images.unsplash.com/photo-1555435025-9e3e0b6e9f9e?auto=format&fit=crop&w=600&q=80' },
+      { name: 'Dr. Aisha Ahmed', specialty: 'Emergency Medicine', experience: '15 years', img: 'https://images.unsplash.com/photo-1582560470055-c7c11b3b1f09?auto=format&fit=crop&w=600&q=80' }
+    ];
+
+    const doctorGrid = document.getElementById('doctorGrid');
+    const doctorSearch = document.getElementById('doctorSearch');
+
+    function renderDoctors(docs) {
+      doctorGrid.innerHTML = '';
+      if(docs.length === 0) {
+        doctorGrid.innerHTML = '<div class="col-12 text-center text-muted py-4">No specialists found matching your search.</div>';
+        return;
+      }
+      docs.forEach(doc => {
+        const html = `
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <img src="${doc.img}" class="card-img-top doc-img" alt="${doc.name}">
+              <div class="card-body text-center">
+                <h5 class="card-title mb-1">${doc.name}</h5>
+                <p class="text-primary fw-semibold small mb-2">${doc.specialty}</p>
+                <p class="text-muted small mb-3"><i class="fa-solid fa-briefcase medical me-1"></i> ${doc.experience} Experience</p>
+                <a href="#appointments" class="btn btn-outline-primary btn-sm w-100">Book Consult</a>
+              </div>
+            </div>
+          </div>
+        `;
+        doctorGrid.insertAdjacentHTML('beforeend', html);
+      });
+    }
+
+    // Initialize Doctors
+    renderDoctors(doctors);
+
+    // Search functionality
+    doctorSearch.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = doctors.filter(d => 
+        d.name.toLowerCase().includes(query) || 
+        d.specialty.toLowerCase().includes(query)
+      );
+      renderDoctors(filtered);
+    });
+
+    // Form Validation (Bootstrap)
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault()
+          if (!form.checkValidity()) {
+            event.stopPropagation()
+          } else {
+            alert('Thank you! Your appointment request has been submitted securely. We will confirm via SMS shortly.');
+            form.reset();
+            form.classList.remove('was-validated');
+            return;
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+
+      // Login Form Intercept
+      document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Authentication successful. Redirecting to Patient Portal dashboard...');
+        bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+      });
+    })()
+  </script>
+</body>
+</html>
